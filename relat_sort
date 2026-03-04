@@ -1,0 +1,18 @@
+class Solution(object):
+    def findRelativeRanks(self, score):
+        sorted_scores = sorted(score, reverse=True)
+        rank_dict ={}
+
+        for i in range(len(sorted_scores)):
+            if i == 0:
+                rank_dict[sorted_scores[i]] = "Gold Medal"
+            elif i == 1:
+                rank_dict[sorted_scores[i]] = "Silver Medal"
+            elif i == 2:
+                rank_dict[sorted_scores[i]] = "Bronze Medal"
+            else:
+                rank_dict[sorted_scores[i]] = str(i+1) #++1
+        res = []
+        for s in score:
+            res.append(rank_dict[s])
+        return res
